@@ -1,0 +1,43 @@
+# disable the newline at the start of the prompt
+add_newline = false
+
+# $time\ was originally at the beginning, but dropping it for extra space
+# add/remove $line_break\ before $character\ to get prompt character on same line as prompt
+format = '''
+[┌────>](bold green)$time$directory$git_branch$git_status$python
+[└─](bold green)$character '''
+
+# replace the prompt character
+[character]
+success_symbol = "[❯](bold purple)"
+error_symbol = "[❯](bold red)"
+vicmd_symbol = "[❯](bold purple)"
+
+# only show current and parent directory
+[directory]
+truncation_length = 2
+style = "bright-blue"
+format = "[$path ]($style)[$read_only]($read_only_style)"
+
+# do not put prompt character on new line
+# might revisit this in the future...
+[line_break]
+# disabled = true
+
+# show the time in the prompt
+[time]
+disabled = false
+style = "bright-white dimmed"
+time_format = "[%T] "
+format = "[$time]($style)"
+
+[git_branch]
+style = "purple"
+symbol = " "
+
+[git_status]
+style = "yellow"
+deleted = "×"
+
+[python]
+python_binary = ["./venv/bin/python", "python3", "python", "python2"]
